@@ -18,6 +18,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import TextField from '@mui/material/TextField';
 import Input from '@mui/material/Input';
 import { Link } from 'react-router-dom';
+import DashboardIcon from '@mui/icons-material/Dashboard';
 
 
 
@@ -183,6 +184,11 @@ const Header = () => {
                             <Link style={{ color: 'black' }} to='/cart'> <ShoppingCartIcon sx={{ marginLeft: '10px' }} /></Link>
 
                             <FavoriteIcon sx={{ marginLeft: '10px' }} />
+
+                            <Link style={{ color: 'black' }} to="/adminDashboard">
+                                <DashboardIcon sx={{ marginLeft: '10px' }}></DashboardIcon>
+                            </Link>
+
                         </Box>
                         {/* <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

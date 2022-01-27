@@ -1,4 +1,4 @@
-import { Button, Checkbox, Container, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Paper, Typography } from '@mui/material';
+import { Box, Button, Checkbox, Container, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Paper, Typography } from '@mui/material';
 import React from 'react';
 import Footer from '../Home/Footer/Footer';
 import Header from '../Home/Header/Header';
@@ -9,10 +9,12 @@ import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { Controller, useForm } from 'react-hook-form';
 import { Outlet } from 'react-router-dom';
+import useAuth from '../../Hooks/useAuth';
+
 
 const AccountDashboard = () => {
 
-
+    const { user, logOut } = useAuth();
     /* const { register, handleSubmit, control, reset } = useForm({
         defaultValues: {
             checkbox: false,
@@ -32,6 +34,10 @@ const AccountDashboard = () => {
                                 fontWeight: "bold", fontFamily: "Mulish",
                                 fontSize: 'calc(0rem + 1vw)', textAlign: 'center',/*  fontSize: '17px' */
                             }}>ACCOUNT DASHBOARD</Typography>
+
+
+                            <br />
+
 
                             <List
                                 sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
@@ -80,6 +86,15 @@ const AccountDashboard = () => {
                                         </ListItemButton>
                                     </ListItem>
                                 </Link>
+
+                                <Box sx={{ textAlign: 'center' }}>
+                                    {
+                                        user.email ?
+                                            <Button onClick={logOut}>logout</Button> :
+                                            <Link to="/login"><Button >login</Button></Link>
+                                    }
+
+                                </Box>
 
                             </List>
                         </Paper>
